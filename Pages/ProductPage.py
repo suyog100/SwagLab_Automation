@@ -12,7 +12,6 @@ class ProductPage(BasePage):
     def get_item_count(self):
         return self.get_count(ProductPageLocators.inventory_count_path)
 
-
     def add_single_item(self,locators):
         self.click_element(locators)
     def remove_single_item(self,locators):

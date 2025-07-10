@@ -1,4 +1,4 @@
-import pytest
+import pytesti
 
 from Locators.alllocators import LoginPageLocators, ProductPageLocators
 from Pages.CartPage import CartPage

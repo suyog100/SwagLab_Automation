@@ -113,5 +113,12 @@ class OtherPageLocators:
     facebook_path = (By.XPATH, '//*[@id="page_wrapper"]/footer/ul/li[2]/a')
     linkedin_path = (By.XPATH, '//*[@id="page_wrapper"]/footer/ul/li[3]/a')
 
+class PaymentPageLocators:
+    payment_page_url = 'https://www.saucedemo.com/checkout-step-two.html'
+    payment_info_path = (By.XPATH,'//*[@id="checkout_summary_container"]/div/div[2]/div[2]')
+    shipping_info_path = (By.XPATH,'//*[@id="checkout_summary_container"]/div/div[2]/div[4]')
+    payment_title = (By.XPATH,'//*[@id="header_container"]/div[1]/div[2]/div')
+    finish_button_path = (By.XPATH,'//*[@id="finish"]')
+    cancel_button_path = (By.XPATH,'//*[@id="cancel"]')
 
 
