@@ -4,10 +4,12 @@ class LoginPageLocators:
     valid_username="standard_user"
     valid_password="secret_sauce"
 
+
     username_field = (By.ID,"user-name")
     password_field = (By.ID,"password")
     login_button=(By.ID,"login-button")
     error_field_path = (By.XPATH,'//*[@id="login_button_container"]/div/form/div[3]/h3')
+    show_password_path=()
 
 class ProductPageLocators:
     ProductPageUrl="https://www.saucedemo.com/inventory.html"
@@ -58,13 +60,17 @@ class ProductPageLocators:
     #remove_allthings_path=(By.XPATH,'//*[@id="remove-test.allthethings()-t-shirt-(red)"]')
     remove_allthings_path=(By.ID,'remove-test.allthethings()-t-shirt-(red)')
 
-
-    # twitter_path=(By.XPATH,'//*[@id="page_wrapper"]/footer/ul/li[1]/a')
-    # facebook_path=(By.XPATH,'//*[@id="page_wrapper"]/footer/ul/li[2]/a')
-    # linkedin_path=(By.XPATH,'//*[@id="page_wrapper"]/footer/ul/li[3]/a')
-
     back_to_product = (By.ID, 'back-to-products')
 
+    @staticmethod
+    def product_card_by_name(name):
+        return By.XPATH,f"//div[text()='{name}']/ancestor::div[@class='inventory-item']"
+    inventory_name_class_path=(By.CLASS_NAME, 'inventory_item_name')
+    inventory_desc_class_path=(By.CLASS_NAME, 'inventory_item_desc')
+    inventory_img_class_path=(By.CLASS_NAME, 'inventory_item_img')
+    inventory_price_class_path=(By.CLASS_NAME, 'inventory_item_price')
+    inventory_add_to_cart_button=(By.ID, 'add-to-cart')
+    inventory_add_to_remove_button=(By.ID, 'remove')
 
 class CartPageLocators:
     cart_page_title=(By.XPATH,'//*[@id="header_container"]/div[2]/span')
@@ -84,13 +90,21 @@ class CheckoutPageLocators:
     Zip_code_path=(By.ID,'postal-code')
     cancel_button_path=(By.ID,'cancel')
     continue_button_path=(By.ID,'continue')
-
     error_message_path=(By.XPATH,'//*[@id="checkout_info_container"]/div/form/div[1]/div[4]/h3')
 
 class CheckoutOverviewPageLocators:
     checkout_overview_url='https://www.saucedemo.com/checkout-step-two.html'
     checkout_overview_title=(By.XPATH,'//*[@id="header_container"]/div[2]/span')
-    finish_button_path = (By.ID, 'finish')
+
+    #finish_button_path = (By.ID,'finish')
+    #finish_button_path=(By.XPATH,'/html/body/div/div/div/div[2]/div/div[2]/div[9]/button[2]')
+    payment_page_url = 'https://www.saucedemo.com/checkout-step-two.html'
+    payment_info_path = (By.XPATH, '//*[@id="checkout_summary_container"]/div/div[2]/div[2]')
+    shipping_info_path = (By.XPATH, '//*[@id="checkout_summary_container"]/div/div[2]/div[4]')
+    payment_title = (By.XPATH, '//*[@id="header_container"]/div[1]/div[2]/div')
+    finish_button_path = (By.XPATH, '//*[@id="finish"]')
+    cancel_button_path = (By.XPATH, '//*[@id="cancel"]')
+
 
 class FinishPageLocators:
     finish_page_url='https://www.saucedemo.com/checkout-complete.html'
@@ -113,12 +127,5 @@ class OtherPageLocators:
     facebook_path = (By.XPATH, '//*[@id="page_wrapper"]/footer/ul/li[2]/a')
     linkedin_path = (By.XPATH, '//*[@id="page_wrapper"]/footer/ul/li[3]/a')
 
-class PaymentPageLocators:
-    payment_page_url = 'https://www.saucedemo.com/checkout-step-two.html'
-    payment_info_path = (By.XPATH,'//*[@id="checkout_summary_container"]/div/div[2]/div[2]')
-    shipping_info_path = (By.XPATH,'//*[@id="checkout_summary_container"]/div/div[2]/div[4]')
-    payment_title = (By.XPATH,'//*[@id="header_container"]/div[1]/div[2]/div')
-    finish_button_path = (By.XPATH,'//*[@id="finish"]')
-    cancel_button_path = (By.XPATH,'//*[@id="cancel"]')
 
 
