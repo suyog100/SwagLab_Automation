@@ -18,7 +18,6 @@ def test_bug1_empty_cart_checkout(driver):
     checkout_page = CheckoutPage(driver)
     checkout_page.enter_checkout_info(CheckoutPageLocators.valid_first_name, CheckoutPageLocators.valid_last_name,
                                       CheckoutPageLocators.valid_zip_code)
-    checkout_page.click_continue_button()
     checkout_overview_page = CheckoutOverviewPage(driver)
     checkout_overview_page.click_finish_button()
     finish_page = FinishPage(driver)
@@ -32,4 +31,5 @@ def test_bug2_menu_not_collapsing(driver):
     assert menu_page.is_menu_sidebar_displayed(),"Menu sidebar is not displayed"
     menu_page.go_to_all_item()
     assert not menu_page.is_menu_sidebar_displayed(),"Menu sidebar is still displayed"
+    assert menu_page.is_menu_button_displayed(),"Menu button is not displayed"
 
